@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     public PlayerData playerData;
     public GameData gameData;
+    public SceneData sceneData;
 
     // Start is called before the first frame update
     void Start()
