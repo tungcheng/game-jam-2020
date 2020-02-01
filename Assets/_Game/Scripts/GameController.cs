@@ -11,7 +11,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Pool.Set(playerData);
+        Pool.Set(gameData);
+        Pool.Set(sceneData);
     }
 
     // Update is called once per frame
@@ -28,24 +30,24 @@ public class GameController : MonoBehaviour
             if (IsMouseUp())
             {
                 gameData.isCardDragging = false;
-                var delta = sceneData.testCard.position - sceneData.cardStartPos.position;
+                var delta = sceneData.cardCurrent.position - sceneData.cardStartPos.position;
 
                 if (Mathf.Abs(delta.x) > sceneData.dragCardZone.size.x * 0.5f)
                 {
-                    // handle drag out
+                    sceneData.cardCurrent.SetFlipOut();
                 }
-                sceneData.testCard.position = sceneData.cardStartPos.position;
-                sceneData.testCard.rotation = sceneData.cardStartPos.rotation;
+                else
+                {
+                    sceneData.cardCurrent.SetReturn();
+                }
             }
 
-            if (gameData.isCardDragging)
+            if (gameData.isCardDragging && sceneData.cardCurrent.state == CardData.CardState.CanDrag)
             {
                 var dragNowPos = GetMousePosition();
                 var dragDelta = dragNowPos - gameData.dragLastPos;
                 gameData.dragLastPos = dragNowPos;
-                sceneData.testCard.position += new Vector3(dragDelta.x, dragDelta.y);
-                var delta = sceneData.testCard.position - sceneData.cardStartPos.position;
-                sceneData.testCard.rotation = Quaternion.Euler(0f, 0f, -delta.x * 10f);
+                sceneData.cardCurrent.SetPosByDrag(dragDelta);
             }
         }
     }
