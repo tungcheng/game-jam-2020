@@ -39,7 +39,11 @@ public class ResourceData : MonoBehaviour
 
     public void ShowHint(float change, float decideDelta)
     {
-        if (change == 0) return;
+        if (change == 0)
+        {
+            hint.SetActive(false);
+            return;
+        }
         hint.SetActive(true && isHaveHint);
         var hintRender = hint.GetComponent<SpriteRenderer>();
         var color = Color.white;
