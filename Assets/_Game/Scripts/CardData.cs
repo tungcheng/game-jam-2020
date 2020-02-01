@@ -62,6 +62,8 @@ public class CardData : MonoBehaviour
     public TMP_Text textLeft;
     public TMP_Text textCharacter;
 
+    public SpriteRenderer endingRenderer;
+
     private void Start()
     {
         SetState(CardState.Apear);
@@ -74,9 +76,6 @@ public class CardData : MonoBehaviour
             {
                 SetState(CardState.CanDrag);
             });
-
-        HideText();
-        textCharacter.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -101,6 +100,8 @@ public class CardData : MonoBehaviour
 
     public void SetGameEvent(GameEvent gameEvent)
     {
+        HideText();
+        textCharacter.gameObject.SetActive(true);
         textCharacter.text = gameEvent.character;
         textLeft.text = gameEvent.answerLeft.textAnswer;
         textRight.text = gameEvent.answerRight.textAnswer;
@@ -155,5 +156,12 @@ public class CardData : MonoBehaviour
         textLeft.gameObject.SetActive(false);
         textRight.gameObject.SetActive(false);
         textCharacter.gameObject.SetActive(false);
+    }
+
+    public void ShowEnding(GameEnding ending)
+    {
+        HideText();
+        endingRenderer.gameObject.SetActive(true);
+        endingRenderer.sprite = ending.sprite;
     }
 }

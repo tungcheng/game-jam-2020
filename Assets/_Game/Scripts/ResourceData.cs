@@ -22,6 +22,16 @@ public class ResourceData : MonoBehaviour
         HideHint();
     }
 
+    public bool IsFull()
+    {
+        return (amount >= amountMax);
+    }
+
+    public bool IsEmpty()
+    {
+        return (amount <= 0);
+    }
+
     public void HideHint()
     {
         hint.SetActive(false);

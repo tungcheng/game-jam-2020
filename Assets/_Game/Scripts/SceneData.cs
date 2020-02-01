@@ -18,6 +18,7 @@ public class SceneData
     public CardData cardPrefab;
     public CardData cardCurrent;
 
+    public ResourceData research;
     public ResourceData[] resources;
     public Color colorAdd;
     public Color colorReduce;
@@ -25,6 +26,7 @@ public class SceneData
 
     public TMP_Text textEventInfo;
     public TMP_Text timeInfo;
+    public TMP_Text endingInfo;
 
     public Dictionary<string, ResourceData> dictResource;
 

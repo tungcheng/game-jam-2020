@@ -517,3 +517,42 @@ MonoBehaviour:
       - resource: Mental
         min: 3
         max: 5
+  endings:
+  - name: Material
+    header: Check your supplies
+    textInfo: "You ran out of materials, you don\u2019t have an ability to finish
+      the cure anymore. Soon after that about 1 months, humans got to be one of the
+      extinct animals."
+    sprite: {fileID: 21300000, guid: ac151379e0f36d244a43f1d8d00f8cec, type: 3}
+  - name: ManPower
+    header: Damn, Where is everyone
+    textInfo: All your researchers are no longer capable of helping you to find the
+      cure anymore. You were left alone, and finally, I realize that no one else is
+      alive except you.
+    sprite: {fileID: 21300000, guid: fa2d256c7b342f648a21b32c14eee4b5, type: 3}
+  - name: Tech
+    header: You returned to Stone Age
+    textInfo: "Your technology is so old that no one uses it anymore, you couldn\u2019t
+      do anything with it and no longer have a brain to do anything. You lost your
+      sense of modern life and return to the Stone Age."
+    sprite: {fileID: 21300000, guid: 4f662acbf36fc7f47939ce786452845a, type: 3}
+  - name: Mental
+    header: Mental breakdown
+    textInfo: "You\u2019ve done so much your brain start malfunction. You start to
+      stress out, getting depressed, then possessed by Satan."
+    sprite: {fileID: 21300000, guid: 1740635e1954cca4daee5c3dae7eac19, type: 3}
+  - name: Money
+    header: Bankruptcy
+    textInfo: "Who know a doctor, a researcher would get bankrupted. Well, that\u2019s
+      unlucky of you :D"
+    sprite: {fileID: 21300000, guid: 9b21a255941e3d24c8be6cf73802516f, type: 3}
+  - name: Research.Bad
+    header: Bad Ending
+    textInfo: "\u201CYou got so close But this is past mending You got the bad ending\u201D
+      \ You finally got the cure for the virus. Before you could think of anything,
+      an intruder killed you and took all your work. "
+    sprite: {fileID: 21300000, guid: d8553e4ee4d01f540a7a595fcd226ad4, type: 3}
+  - name: Research.Good
+    header: Good Ending
+    textInfo: Hooray! You win, happy now?
+    sprite: {fileID: 21300000, guid: 0aad6c14969e2eb4db53c8fa256897be, type: 3}

@@ -1,11 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Game/Config")]
 public class GameConfig : ScriptableObject
 {
     public List<GameEvent> events;
+    public List<GameEnding> endings;
+
+    public GameEnding GetEnding(string reason)
+    {
+        return endings.Find(x => x.name == reason);
+    }
+}
+
+[System.Serializable]
+public class GameEnding
+{
+    public string name;
+    public string header;
+    public string textInfo;
+    public Sprite sprite;
 }
 
 [System.Serializable]

@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
         Pool.Set(sceneData);
 
         sceneData.cardPrefab.isActive = false;
+        sceneData.endingInfo.gameObject.SetActive(false);
         CreateNewCard();
     }
 
@@ -175,15 +176,34 @@ public class GameController : MonoBehaviour
         gameData.cardCount += 1;
         sceneData.timeInfo.text = "Day : " + gameData.cardCount.ToString();
 
+        var endingReason = "";
         foreach (var res in sceneData.resources)
         {
             res.changeOnLeft = 0;
             res.changeOnRight = 0;
-            if (res.amount <= 0)
+            if (res.IsEmpty())
             {
+                endingReason = res.gameObject.name;
                 gameData.SetState(GameState.GameOver);
-                Debug.LogError("GAME OVER");
-                Debug.Break();
+            }
+        }
+
+        if (sceneData.research.IsFull())
+        {
+            endingReason = sceneData.research.gameObject.name;
+            endingReason += (Random.value > 0.1f) ? ".Good" : ".Bad";
+            gameData.SetState(GameState.GameOver);
+        }
+
+        if (gameData.state == GameState.GameOver)
+        {
+            sceneData.textEventInfo.text = "GAME OVER";
+            sceneData.endingInfo.gameObject.SetActive(true);
+            var ending = sceneData.config.GetEnding(endingReason);
+            if (ending != null)
+            {
+                sceneData.endingInfo.text = ending.textInfo;
+                sceneData.cardCurrent.ShowEnding(ending);
             }
         }
 
