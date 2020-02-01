@@ -19,6 +19,7 @@ public class SceneData
     public CardData cardPrefab;
     public CardData cardCurrent;
 
+    public Transform researchIcon;
     public ResourceData research;
     public ResourceData[] resources;
     public Color colorAdd;

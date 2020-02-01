@@ -192,6 +192,10 @@ public class GameController : MonoBehaviour
         gameData.cardCount += 1;
         sceneData.timeInfo.text = "Day : " + gameData.cardCount.ToString();
 
+        var iconPos = sceneData.researchIcon.position;
+        iconPos.x = sceneData.research.GetRatio() * 4 - 2f;
+        sceneData.researchIcon.position = iconPos;
+
         var endingReason = "";
         foreach (var res in sceneData.resources)
         {

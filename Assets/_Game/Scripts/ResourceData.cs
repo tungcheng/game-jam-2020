@@ -27,6 +27,11 @@ public class ResourceData : MonoBehaviour
         HideHint();
     }
 
+    public float GetRatio()
+    {
+        return Mathf.Clamp01(amount / amountMax);
+    }
+
     public bool IsFull()
     {
         return (amount >= amountMax);
@@ -72,7 +77,6 @@ public class ResourceData : MonoBehaviour
             {
                 HideHint();
             });
-        amount += change;
     }
 
     public void SetFill()
