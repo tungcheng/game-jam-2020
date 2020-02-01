@@ -16,8 +16,24 @@ public class GameController : MonoBehaviour
         Pool.Set(gameData);
         Pool.Set(sceneData);
 
+        sceneData.btnRestart.onClick.AddListener(StartNewGame);
+        StartNewGame();
+    }
+
+    public void StartNewGame()
+    {
         sceneData.cardPrefab.isActive = false;
         sceneData.endingInfo.gameObject.SetActive(false);
+        if (sceneData.cardCurrent != null)
+        {
+            Destroy(sceneData.cardCurrent.gameObject);
+            gameData.cardCount = 0;
+        }
+        foreach (var res in sceneData.resources)
+        {
+            res.SetStartNew();
+        }
+        gameData.SetState(GameState.Choosing);
         CreateNewCard();
     }
 
@@ -181,7 +197,7 @@ public class GameController : MonoBehaviour
         {
             res.changeOnLeft = 0;
             res.changeOnRight = 0;
-            if (res.IsEmpty())
+            if (res.isMakeEnding && res.IsEmpty())
             {
                 endingReason = res.gameObject.name;
                 gameData.SetState(GameState.GameOver);

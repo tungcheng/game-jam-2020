@@ -7,17 +7,22 @@ public class ResourceData : MonoBehaviour
 {
     public SpriteRenderer fillRender;
     public bool isHaveHint;
+    public bool isMakeEnding;
     public GameObject hint;
 
     public float amountMax = 100f;
-    public float amount = 100f;
+    public float amountStart = 50f;
+    public float amount;
 
     public float changeOnLeft;
     public float changeOnRight;
 
     // Start is called before the first frame update
-    void Start()
+    public void SetStartNew()
     {
+        amount = amountStart;
+        changeOnLeft = 0f;
+        changeOnRight = 0f;
         SetFill();
         HideHint();
     }
@@ -56,7 +61,7 @@ public class ResourceData : MonoBehaviour
     public void SetChange(float change)
     {
         amount += change;
-        amount = Mathf.Clamp(amount, 0f, 100f);
+        amount = Mathf.Clamp(amount, 0, amountMax);
         SetFill();
 
         var hintRender = hint.GetComponent<SpriteRenderer>();

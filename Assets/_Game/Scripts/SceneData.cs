@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
@@ -27,6 +28,8 @@ public class SceneData
     public TMP_Text textEventInfo;
     public TMP_Text timeInfo;
     public TMP_Text endingInfo;
+
+    public Button btnRestart;
 
     public Dictionary<string, ResourceData> dictResource;
 
