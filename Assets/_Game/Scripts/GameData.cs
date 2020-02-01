@@ -18,5 +18,6 @@ public class GameData
 
 public enum GameState
 {
-    Choosing
+    Choosing,
+    GameOver
 }

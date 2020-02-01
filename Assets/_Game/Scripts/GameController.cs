@@ -179,6 +179,12 @@ public class GameController : MonoBehaviour
         {
             res.changeOnLeft = 0;
             res.changeOnRight = 0;
+            if (res.amount <= 0)
+            {
+                gameData.SetState(GameState.GameOver);
+                Debug.LogError("GAME OVER");
+                Debug.Break();
+            }
         }
 
         foreach (var result in gameEvent.answerLeft.results)
