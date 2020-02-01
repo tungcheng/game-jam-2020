@@ -29,6 +29,18 @@ public class CardData : MonoBehaviour
         }
     }
 
+    public bool isActive
+    {
+        get
+        {
+            return gameObject.activeSelf;
+        }
+        set
+        {
+            gameObject.SetActive(value);
+        }
+    }
+
     public enum CardState
     {
         Apear,

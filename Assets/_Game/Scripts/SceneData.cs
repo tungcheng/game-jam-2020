@@ -6,7 +6,11 @@ using UnityEngine;
 public class SceneData
 {
     public Camera mainCamera;
-    public CardData cardCurrent;
+    public Transform sceneRoot;
+    
     public Transform cardStartPos;
     public BoxCollider2D dragCardZone;
+
+    public CardData cardPrefab;
+    public CardData cardCurrent;
 }

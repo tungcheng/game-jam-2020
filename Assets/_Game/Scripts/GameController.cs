@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour
         Pool.Set(playerData);
         Pool.Set(gameData);
         Pool.Set(sceneData);
+
+        sceneData.cardPrefab.isActive = false;
+        CreateNewCard();
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class GameController : MonoBehaviour
                 if (Mathf.Abs(delta.x) > sceneData.dragCardZone.size.x * 0.5f)
                 {
                     sceneData.cardCurrent.SetFlipOut();
+                    CreateNewCard();
                 }
                 else
                 {
@@ -50,6 +54,12 @@ public class GameController : MonoBehaviour
                 sceneData.cardCurrent.SetPosByDrag(dragDelta);
             }
         }
+    }
+
+    void CreateNewCard()
+    {
+        sceneData.cardCurrent = Instantiate(sceneData.cardPrefab, sceneData.sceneRoot);
+        sceneData.cardCurrent.isActive = true;
     }
 
     bool IsMouseDown()

@@ -169,9 +169,11 @@ MonoBehaviour:
     dragLastPos: {x: 0, y: 0}
   sceneData:
     mainCamera: {fileID: 963194227}
-    cardCurrent: {fileID: 784048253}
+    sceneRoot: {fileID: 2135399795}
     cardStartPos: {fileID: 1450803232}
     dragCardZone: {fileID: 2118106395}
+    cardPrefab: {fileID: 784048253}
+    cardCurrent: {fileID: 784048253}
 --- !u!1 &784048250
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ GameObject:
   - component: {fileID: 784048252}
   - component: {fileID: 784048253}
   m_Layer: 0
-  m_Name: TestCard
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
