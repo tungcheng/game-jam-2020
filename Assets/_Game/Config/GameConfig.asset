@@ -279,7 +279,7 @@ MonoBehaviour:
         max: 4
       - resource: Tech
         min: 6
-        max: 10
+        max: 8
     answerLeft:
       swipeSide: Left
       textAnswer: Actually, we only test on monkeys
