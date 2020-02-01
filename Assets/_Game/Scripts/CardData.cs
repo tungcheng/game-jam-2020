@@ -99,6 +99,13 @@ public class CardData : MonoBehaviour
         }
     }
 
+    public void SetGameEvent(GameEvent gameEvent)
+    {
+        textCharacter.text = gameEvent.character;
+        textLeft.text = gameEvent.answerLeft.textAnswer;
+        textRight.text = gameEvent.answerRight.textAnswer;
+    }
+
     public void SetPosByDrag(Vector3 dragDelta)
     {
         this.position += new Vector3(dragDelta.x, dragDelta.y);

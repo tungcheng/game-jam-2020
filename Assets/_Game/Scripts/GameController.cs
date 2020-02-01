@@ -166,13 +166,30 @@ public class GameController : MonoBehaviour
 
     void CreateNewCard()
     {
+        var gameEvent = sceneData.config.events.ElementAt(Random.Range(0, sceneData.config.events.Count));
         sceneData.cardCurrent = Instantiate(sceneData.cardPrefab, sceneData.sceneRoot);
         sceneData.cardCurrent.isActive = true;
+        sceneData.cardCurrent.SetGameEvent(gameEvent);
+        sceneData.textEventInfo.text = gameEvent.eventInfo;
 
         foreach (var res in sceneData.resources)
         {
-            res.changeOnLeft = Random.Range(-4f, 4f);
-            res.changeOnRight = Random.Range(-4f, 4f);
+            res.changeOnLeft = 0;
+            res.changeOnRight = 0;
+        }
+
+        foreach (var result in gameEvent.answerLeft.results)
+        {
+            if (!sceneData.DictResources().ContainsKey(result.resource)) continue;
+            var res = sceneData.DictResources()[result.resource];
+            res.changeOnLeft = Random.Range(result.min, result.max);
+        }
+
+        foreach (var result in gameEvent.answerRight.results)
+        {
+            if (!sceneData.DictResources().ContainsKey(result.resource)) continue;
+            var res = sceneData.DictResources()[result.resource];
+            res.changeOnRight = Random.Range(result.min, result.max);
         }
     }
 

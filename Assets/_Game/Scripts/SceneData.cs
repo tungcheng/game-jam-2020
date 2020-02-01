@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 public class SceneData
@@ -20,6 +22,19 @@ public class SceneData
     public Color colorAdd;
     public Color colorReduce;
     public Color colorNormal;
+
+    public TMP_Text textEventInfo;
+
+    public Dictionary<string, ResourceData> dictResource;
+
+    public Dictionary<string, ResourceData> DictResources()
+    {
+        if (dictResource == null)
+        {
+            dictResource = resources.ToDictionary(x => x.gameObject.name, x => x);
+        }
+        return dictResource;
+    }
 
     public Color GetColorChange(float change)
     {
