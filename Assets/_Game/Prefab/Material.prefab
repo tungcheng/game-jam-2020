@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillRender: {fileID: 2668780828336509833}
+  isHaveHint: 1
   hint: {fileID: 2668780828612845615}
   amountMax: 100
   amount: 50

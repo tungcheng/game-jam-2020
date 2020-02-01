@@ -6,6 +6,7 @@ using DG.Tweening;
 public class ResourceData : MonoBehaviour
 {
     public SpriteRenderer fillRender;
+    public bool isHaveHint;
     public GameObject hint;
 
     public float amountMax = 100f;
@@ -29,7 +30,7 @@ public class ResourceData : MonoBehaviour
     public void ShowHint(float change, float decideDelta)
     {
         if (change == 0) return;
-        hint.SetActive(true);
+        hint.SetActive(true && isHaveHint);
         var hintRender = hint.GetComponent<SpriteRenderer>();
         var color = Color.white;
         color.a = Mathf.Abs(decideDelta);
