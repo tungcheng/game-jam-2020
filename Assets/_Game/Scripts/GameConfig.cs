@@ -8,11 +8,24 @@ public class GameConfig : ScriptableObject
 {
     public List<GameEvent> events;
     public List<GameEnding> endings;
+    public List<GameCharacter> characters;
 
     public GameEnding GetEnding(string reason)
     {
         return endings.Find(x => x.name == reason);
     }
+
+    public GameCharacter GetCharacter(string character)
+    {
+        return characters.Find(x => x.character == character);
+    }
+}
+
+[System.Serializable]
+public class GameCharacter
+{
+    public string character;
+    public Sprite avatar;
 }
 
 [System.Serializable]

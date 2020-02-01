@@ -31,8 +31,8 @@ MonoBehaviour:
       textAnswer: No
       results:
       - resource: Material
-        min: -3
-        max: -5
+        min: 6
+        max: 8
       - resource: ManPower
         min: 2
         max: 3
@@ -43,8 +43,8 @@ MonoBehaviour:
       textAnswer: Hire more researchers
       results:
       - resource: ManPower
-        min: 4
-        max: 6
+        min: 2
+        max: 3
       - resource: Mental
         min: -3
         max: -4
@@ -59,8 +59,8 @@ MonoBehaviour:
         min: -4
         max: -5
       - resource: Research
-        min: 3
-        max: 3
+        min: 2
+        max: 2
   - character: Researcher
     eventInfo: Our research need a little bit more time to get a medicine that can
       delay the virus to duplicate, can we get some help?
@@ -75,8 +75,8 @@ MonoBehaviour:
         min: -3
         max: -5
       - resource: ManPower
-        min: 4
-        max: 6
+        min: 2
+        max: 3
       - resource: Mental
         min: 3
         max: 6
@@ -112,13 +112,13 @@ MonoBehaviour:
       results:
       - resource: Research
         min: 2
-        max: 10
+        max: 4
       - resource: Mental
         min: -5
         max: 5
       - resource: Material
-        min: -8
-        max: -4
+        min: -4
+        max: 4
       - resource: ManPower
         min: 2
         max: 4
@@ -152,8 +152,8 @@ MonoBehaviour:
         min: -5
         max: -2
       - resource: Tech
-        min: -4
-        max: -2
+        min: -9
+        max: -5
   - character: Guard
     eventInfo: People are starting scandals, we need more manpower
     answerRight:
@@ -164,10 +164,10 @@ MonoBehaviour:
         min: 3
         max: 5
       - resource: Material
-        min: 5
-        max: 8
+        min: -6
+        max: -8
       - resource: Money
-        min: 4
+        min: -4
         max: -2
       - resource: Tech
         min: -6
@@ -180,7 +180,7 @@ MonoBehaviour:
         min: -4
         max: 4
       - resource: Tech
-        min: -5
+        min: -8
         max: -3
   - character: Guard
     eventInfo: There are so many bandits, we need more guards sir.
@@ -192,8 +192,8 @@ MonoBehaviour:
         min: 3
         max: 5
       - resource: Material
-        min: 8
-        max: 12
+        min: -4
+        max: 4
       - resource: Money
         min: -4
         max: -4
@@ -221,8 +221,8 @@ MonoBehaviour:
         min: 3
         max: 5
       - resource: Material
-        min: 8
-        max: 12
+        min: 5
+        max: 7
       - resource: Money
         min: -8
         max: -5
@@ -246,8 +246,8 @@ MonoBehaviour:
       textAnswer: Give medicine
       results:
       - resource: Mental
-        min: 6
-        max: 12
+        min: 3
+        max: 6
       - resource: Money
         min: -5
         max: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
         min: -5
         max: -3
       - resource: Research
-        min: 4
-        max: 7
+        min: 2
+        max: 4
       - resource: Tech
         min: 6
         max: 10
@@ -285,8 +285,8 @@ MonoBehaviour:
       textAnswer: Actually, we only test on monkeys
       results:
       - resource: Research
-        min: 3
-        max: 5
+        min: 1
+        max: 2
       - resource: Material
         min: -4
         max: -2
@@ -314,8 +314,8 @@ MonoBehaviour:
         min: 3
         max: 7
       - resource: ManPower
-        min: -3
-        max: -2
+        min: -8
+        max: -7
   - character: Journalist
     eventInfo: The medicine you guys just give out got reported that the materials
       are made from China. Is it true?
@@ -325,7 +325,7 @@ MonoBehaviour:
       results:
       - resource: Material
         min: 5
-        max: 10
+        max: 7
       - resource: Mental
         min: -6
         max: -3
@@ -337,8 +337,8 @@ MonoBehaviour:
       textAnswer: False
       results:
       - resource: Mental
-        min: 4
-        max: 7
+        min: 2
+        max: 3
       - resource: Money
         min: -5
         max: -3
@@ -349,8 +349,8 @@ MonoBehaviour:
       textAnswer: Materials
       results:
       - resource: Material
-        min: 5
-        max: 8
+        min: 8
+        max: 10
     answerLeft:
       swipeSide: Left
       textAnswer: Some more researchers
@@ -365,10 +365,10 @@ MonoBehaviour:
       textAnswer: anti spread products
       results:
       - resource: Material
-        min: -5
-        max: -4
+        min: -3
+        max: -2
       - resource: ManPower
-        min: -4
+        min: -7
         max: -2
       - resource: Money
         min: 5
@@ -381,8 +381,8 @@ MonoBehaviour:
       textAnswer: continue the vaccine
       results:
       - resource: Mental
-        min: -4
-        max: -2
+        min: -5
+        max: -1
       - resource: Research
         min: 3
         max: 5
@@ -393,8 +393,8 @@ MonoBehaviour:
       textAnswer: Yes
       results:
       - resource: Research
-        min: 4
-        max: 8
+        min: 2
+        max: 4
       - resource: Money
         min: -7
         max: -4
@@ -403,13 +403,13 @@ MonoBehaviour:
         max: 6
       - resource: ManPower
         min: 4
-        max: 6
+        max: 5
     answerLeft:
       swipeSide: Left
       textAnswer: No
       results:
       - resource: Material
-        min: -5
+        min: -3
         max: -2
       - resource: Research
         min: 1
@@ -465,13 +465,13 @@ MonoBehaviour:
       textAnswer: Are you kidding me
       results:
       - resource: Research
-        min: 3
-        max: 5
+        min: 2
+        max: 4
       - resource: Mental
         min: 3
         max: 6
       - resource: Material
-        min: -4
+        min: -3
         max: -2
   - character: Military
     eventInfo: We need help, a lot of our soilder got injured bad.
@@ -493,7 +493,7 @@ MonoBehaviour:
       textAnswer: We don't have much
       results:
       - resource: Material
-        min: -4
+        min: -3
         max: -2
       - resource: Mental
         min: 3
@@ -512,7 +512,7 @@ MonoBehaviour:
       textAnswer: Sure
       results:
       - resource: Material
-        min: -4
+        min: -3
         max: -2
       - resource: Mental
         min: 3
@@ -524,7 +524,7 @@ MonoBehaviour:
       textAnswer: yeah. What you got
       results:
       - resource: Material
-        min: 6
+        min: 8
         max: 10
       - resource: Money
         min: -5
@@ -534,8 +534,8 @@ MonoBehaviour:
       textAnswer: No, thank you.
       results:
       - resource: Mental
-        min: 3
-        max: 5
+        min: -3
+        max: -5
   endings:
   - name: Material
     header: Check your supplies
@@ -575,3 +575,18 @@ MonoBehaviour:
     header: Good Ending
     textInfo: Hooray! You win, happy now?
     sprite: {fileID: 21300000, guid: 0aad6c14969e2eb4db53c8fa256897be, type: 3}
+  characters:
+  - character: Researcher
+    avatar: {fileID: 21300000, guid: 3d5afec41f562e542a71977aaed03c2c, type: 3}
+  - character: Guard
+    avatar: {fileID: 21300000, guid: 2cf0a31d88f942349a91dd503df72192, type: 3}
+  - character: Journalist
+    avatar: {fileID: 21300000, guid: dce317423897fca4c846a5c75bc5d2f8, type: 3}
+  - character: Bandit
+    avatar: {fileID: 21300000, guid: 0a7faa97a9afb29459bfaf474e48e7b8, type: 3}
+  - character: Government
+    avatar: {fileID: 21300000, guid: e91c6a27f47c4924bbd7435610b81e05, type: 3}
+  - character: Family
+    avatar: {fileID: 21300000, guid: 90d399367c78a2d42b6986201582dfea, type: 3}
+  - character: Military
+    avatar: {fileID: 21300000, guid: 4081c1f479645f845b0a5fda1cd3f13e, type: 3}

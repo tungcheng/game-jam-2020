@@ -63,6 +63,7 @@ public class CardData : MonoBehaviour
     public TMP_Text textCharacter;
 
     public SpriteRenderer endingRenderer;
+    public SpriteRenderer characterRenderer;
 
     private void Start()
     {
@@ -102,7 +103,9 @@ public class CardData : MonoBehaviour
     {
         HideText();
         textCharacter.gameObject.SetActive(true);
+        characterRenderer.gameObject.SetActive(true);
         textCharacter.text = gameEvent.character;
+        characterRenderer.sprite = Pool.Get<SceneData>().config.GetCharacter(gameEvent.character).avatar;
         textLeft.text = gameEvent.answerLeft.textAnswer;
         textRight.text = gameEvent.answerRight.textAnswer;
     }
@@ -161,6 +164,7 @@ public class CardData : MonoBehaviour
     public void ShowEnding(GameEnding ending)
     {
         HideText();
+        characterRenderer.gameObject.SetActive(false);
         endingRenderer.gameObject.SetActive(true);
         endingRenderer.sprite = ending.sprite;
     }
