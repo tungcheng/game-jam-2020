@@ -13,4 +13,20 @@ public class SceneData
 
     public CardData cardPrefab;
     public CardData cardCurrent;
+
+    public ResourceData[] resources;
+    public Color colorAdd;
+    public Color colorReduce;
+    public Color colorNormal;
+
+    public Color GetColorChange(float change)
+    {
+        if (change == 0) return colorNormal;
+        return (change > 0) ? colorAdd : colorReduce;
+    }
+
+    public float GetHalfZoneX()
+    {
+        return dragCardZone.size.x * 0.5f;
+    }
 }

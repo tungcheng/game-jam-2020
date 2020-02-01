@@ -35,14 +35,26 @@ public class GameController : MonoBehaviour
                 gameData.isCardDragging = false;
                 var delta = sceneData.cardCurrent.position - sceneData.cardStartPos.position;
 
-                if (Mathf.Abs(delta.x) > sceneData.dragCardZone.size.x * 0.5f)
+                if (Mathf.Abs(delta.x) > sceneData.GetHalfZoneX())
                 {
                     sceneData.cardCurrent.SetFlipOut();
+
+                    foreach (var res in sceneData.resources)
+                    {
+                        var change = (delta.x > 0f) ? res.changeOnRight : res.changeOnLeft;
+                        res.SetChange(change);
+                    }
+
                     CreateNewCard();
                 }
                 else
                 {
                     sceneData.cardCurrent.SetReturn();
+
+                    foreach (var res in sceneData.resources)
+                    {
+                        res.HideHint();
+                    }
                 }
             }
 
@@ -50,8 +62,18 @@ public class GameController : MonoBehaviour
             {
                 var dragNowPos = GetMousePosition();
                 var dragDelta = dragNowPos - gameData.dragLastPos;
+
+                var delta = sceneData.cardCurrent.position - sceneData.cardStartPos.position;
+                var delta01 = Mathf.Sign(delta.x) * Mathf.Clamp01(Mathf.Abs(delta.x) / sceneData.GetHalfZoneX());
+
                 gameData.dragLastPos = dragNowPos;
                 sceneData.cardCurrent.SetPosByDrag(dragDelta);
+
+                foreach (var res in sceneData.resources)
+                {
+                    var change = (delta.x > 0f) ? res.changeOnRight : res.changeOnLeft;
+                    res.ShowHint(change, delta01);
+                }
             }
         }
     }
@@ -60,6 +82,12 @@ public class GameController : MonoBehaviour
     {
         sceneData.cardCurrent = Instantiate(sceneData.cardPrefab, sceneData.sceneRoot);
         sceneData.cardCurrent.isActive = true;
+
+        foreach(var res in sceneData.resources)
+        {
+            res.changeOnLeft = Random.Range(-4f, 4f);
+            res.changeOnRight = Random.Range(-4f, 4f);
+        }
     }
 
     bool IsMouseDown()
