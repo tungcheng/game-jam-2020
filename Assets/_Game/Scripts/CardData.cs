@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class CardData : MonoBehaviour
 {
@@ -57,6 +58,9 @@ public class CardData : MonoBehaviour
     }
 
     public SpriteRenderer spriteRenderer;
+    public TMP_Text textRight;
+    public TMP_Text textLeft;
+    public TMP_Text textCharacter;
 
     private void Start()
     {
@@ -70,6 +74,9 @@ public class CardData : MonoBehaviour
             {
                 SetState(CardState.CanDrag);
             });
+
+        HideText();
+        textCharacter.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -96,6 +103,7 @@ public class CardData : MonoBehaviour
     {
         this.position += new Vector3(dragDelta.x, dragDelta.y);
         SetRotationByDeltaX();
+        SetTextChoiceByDeltaX();
     }
 
     public void SetFlipOut()
@@ -109,6 +117,7 @@ public class CardData : MonoBehaviour
         {
             Destroy(gameObject);
         });
+        HideText();
     }
 
     public void SetReturn()
@@ -124,5 +133,20 @@ public class CardData : MonoBehaviour
         angleZ = (angleZ < -120f) ? -120f : angleZ;
         angleZ = (angleZ > 120f) ? 120f : angleZ;
         this.rotation = Quaternion.Euler(0f, 0f, angleZ);
+    }
+
+    public void SetTextChoiceByDeltaX()
+    {
+        var cardStart = Pool.Get<SceneData>().cardStartPos;
+        var delta = this.position - cardStart.position;
+        textLeft.gameObject.SetActive(delta.x < 0f);
+        textRight.gameObject.SetActive(delta.x > 0f);
+    }
+
+    public void HideText()
+    {
+        textLeft.gameObject.SetActive(false);
+        textRight.gameObject.SetActive(false);
+        textCharacter.gameObject.SetActive(false);
     }
 }
