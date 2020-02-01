@@ -1,0 +1,519 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e04048bc2335194a89c3cbbc705af1f, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  events:
+  - character: Researcher
+    eventInfo: "I\u2019m glad that you\u2019re spending your time and effort to this,
+      can we get better equipments?"
+    answerRight:
+      swipeSide: Right
+      textAnswer: Yes
+      results:
+      - resource: Tech
+        min: 3
+        max: 5
+      - resource: Money
+        min: -4
+        max: -7
+    answerLeft:
+      swipeSide: Left
+      textAnswer: No
+      results:
+      - resource: Material
+        min: -4
+        max: -8
+      - resource: ManPower
+        min: 2
+        max: 3
+  - character: Researcher
+    eventInfo: "The people can\u2019t wait anymore, what should we do?"
+    answerRight:
+      swipeSide: Right
+      textAnswer: Hire more researchers
+      results:
+      - resource: ManPower
+        min: 4
+        max: 6
+      - resource: Mental
+        min: -3
+        max: -4
+      - resource: Money
+        min: -2
+        max: -4
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Do more complicated research
+      results:
+      - resource: Material
+        min: -4
+        max: -5
+      - resource: Research
+        min: 3
+        max: 3
+  - character: Researcher
+    eventInfo: Our research need a little bit more time to get a medicine that can
+      delay the virus to duplicate, can we get some help?
+    answerRight:
+      swipeSide: Right
+      textAnswer: Sending more materials + people
+      results:
+      - resource: Research
+        min: 2
+        max: 2
+      - resource: Material
+        min: -6
+        max: -10
+      - resource: ManPower
+        min: 4
+        max: 6
+      - resource: Mental
+        min: 3
+        max: 6
+    answerLeft:
+      swipeSide: Left
+      textAnswer: No, our finance and resources are low
+      results:
+      - resource: Research
+        min: 0.5
+        max: 0.5
+      - resource: Mental
+        min: 1
+        max: 3
+      - resource: Money
+        min: 5
+        max: 8
+  - character: Researcher
+    eventInfo: "We just got the results, It\u2019s possible that the virus destroy
+      the human gene and change it."
+    answerRight:
+      swipeSide: Right
+      textAnswer: Call the journalist
+      results:
+      - resource: Mental
+        min: 3
+        max: 5
+      - resource: Money
+        min: 6
+        max: 10
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Tried to finish the research
+      results:
+      - resource: Research
+        min: 2
+        max: 10
+      - resource: Mental
+        min: -5
+        max: 5
+      - resource: Material
+        min: -12
+        max: -8
+      - resource: ManPower
+        min: 2
+        max: 4
+  - character: Researcher
+    eventInfo: Sir! This is an emergency! Our lab just got affected with the virus,
+      What should we do
+    answerRight:
+      swipeSide: Right
+      textAnswer: Changing to other facility
+      results:
+      - resource: Research
+        min: -5
+        max: -5
+      - resource: Mental
+        min: -10
+        max: -5
+      - resource: Material
+        min: -10
+        max: -5
+      - resource: ManPower
+        min: -7
+        max: -3
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Repair your facility
+      results:
+      - resource: Money
+        min: -10
+        max: -5
+      - resource: ManPower
+        min: -5
+        max: -2
+      - resource: Tech
+        min: -4
+        max: -2
+  - character: Guard
+    eventInfo: People are starting scandals, we need more manpower
+    answerRight:
+      swipeSide: Right
+      textAnswer: Sure
+      results:
+      - resource: ManPower
+        min: 3
+        max: 5
+      - resource: Material
+        min: 5
+        max: 8
+      - resource: Money
+        min: -8
+        max: -5
+      - resource: Tech
+        min: -6
+        max: -4
+    answerLeft:
+      swipeSide: Left
+      textAnswer: 'No, We need to focus more on the research:'
+      results:
+      - resource: Material
+        min: -7
+        max: -4
+      - resource: Tech
+        min: -5
+        max: -3
+  - character: Guard
+    eventInfo: There are so many bandits, we need more guards sir.
+    answerRight:
+      swipeSide: Right
+      textAnswer: Sure
+      results:
+      - resource: ManPower
+        min: 3
+        max: 5
+      - resource: Material
+        min: 5
+        max: 8
+      - resource: Money
+        min: -8
+        max: -5
+      - resource: Tech
+        min: -6
+        max: -4
+    answerLeft:
+      swipeSide: Left
+      textAnswer: 'No, We need to focus more on the research:'
+      results:
+      - resource: Material
+        min: -7
+        max: -4
+      - resource: Tech
+        min: -5
+        max: -3
+  - character: Guard
+    eventInfo: The bandits are attacking the facility, we really need to have back
+      up
+    answerRight:
+      swipeSide: Right
+      textAnswer: Sure
+      results:
+      - resource: ManPower
+        min: 3
+        max: 5
+      - resource: Material
+        min: 5
+        max: 8
+      - resource: Money
+        min: -8
+        max: -5
+      - resource: Tech
+        min: -6
+        max: -4
+    answerLeft:
+      swipeSide: Left
+      textAnswer: 'No, We need to focus more on the research:'
+      results:
+      - resource: Material
+        min: -7
+        max: -4
+      - resource: Tech
+        min: -5
+        max: -3
+  - character: Family
+    eventInfo: 'Wife: Our daughter really need the medicine. Please, do something?'
+    answerRight:
+      swipeSide: Right
+      textAnswer: Give medicine
+      results:
+      - resource: Mental
+        min: 6
+        max: 12
+      - resource: money
+        min: -5
+        max: 0
+      - resource: Material
+        min: -5
+        max: -3
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Don't give medicine
+      results:
+      - resource: Mental
+        min: -15
+        max: -10
+      - resource: ManPower
+        min: -8
+        max: -6
+  - character: Journalist
+    eventInfo: I know that you're really busy but there are rumors that the facility
+      start testing the vaccine on prisoners.
+    answerRight:
+      swipeSide: Right
+      textAnswer: Yes, we do
+      results:
+      - resource: Mental
+        min: -5
+        max: -3
+      - resource: Research
+        min: 4
+        max: 7
+      - resource: Tech
+        min: 2
+        max: 5
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Actually, we only test on monkeys
+      results:
+      - resource: Research
+        min: 3
+        max: 5
+      - resource: Material
+        min: -4
+        max: -2
+  - character: Journalist
+    eventInfo: It is said that you guys also got infected with the virus, is that
+      true?
+    answerRight:
+      swipeSide: Right
+      textAnswer: Only some of us
+      results:
+      - resource: Money
+        min: -7
+        max: -3
+      - resource: Material
+        min: -5
+        max: -2
+      - resource: ManPower
+        min: 2
+        max: 3
+    answerLeft:
+      swipeSide: Left
+      textAnswer: We don't accept infected in here
+      results:
+      - resource: Mental
+        min: 3
+        max: 7
+      - resource: ManPower
+        min: -3
+        max: -2
+  - character: Journalist
+    eventInfo: The medicine you guys just give out got reported that the materials
+      are made from China. Is it true?
+    answerRight:
+      swipeSide: Right
+      textAnswer: True
+      results:
+      - resource: Material
+        min: 5
+        max: 10
+      - resource: Mental
+        min: -6
+        max: -3
+      - resource: Money
+        min: 2
+        max: 4
+    answerLeft:
+      swipeSide: Left
+      textAnswer: False
+      results:
+      - resource: Mental
+        min: 4
+        max: 7
+      - resource: Money
+        min: -5
+        max: -3
+  - character: Government
+    eventInfo: I hope everything is going well, do you need anything?
+    answerRight:
+      swipeSide: Right
+      textAnswer: Materials
+      results:
+      - resource: Material
+        min: 5
+        max: 8
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Some more researchers
+      results:
+      - resource: ManPower
+        min: 4
+        max: 7
+  - character: Government
+    eventInfo: We need work on the solution of stopping the spread of the virus
+    answerRight:
+      swipeSide: Right
+      textAnswer: anti spread products
+      results:
+      - resource: Material
+        min: -5
+        max: -4
+      - resource: ManPower
+        min: -4
+        max: -2
+      - resource: Money
+        min: 5
+        max: 9
+      - resource: Mental
+        min: 3
+        max: 5
+    answerLeft:
+      swipeSide: Left
+      textAnswer: continue the vaccine
+      results:
+      - resource: Mental
+        min: -4
+        max: -2
+      - resource: Research
+        min: 3
+        max: 5
+  - character: Government
+    eventInfo: We should collaborate with other international facility
+    answerRight:
+      swipeSide: Right
+      textAnswer: Yes
+      results:
+      - resource: Research
+        min: 4
+        max: 8
+      - resource: Money
+        min: -7
+        max: -4
+      - resource: Tech
+        min: 4
+        max: 6
+      - resource: ManPower
+        min: 4
+        max: 6
+    answerLeft:
+      swipeSide: Left
+      textAnswer: No
+      results:
+      - resource: Material
+        min: -5
+        max: -2
+      - resource: Research
+        min: 1
+        max: 2
+  - character: Military
+    eventInfo: We should make biology weapon to strike other countries
+    answerRight:
+      swipeSide: Right
+      textAnswer: Yes
+      results:
+      - resource: Tech
+        min: 4
+        max: 6
+      - resource: Money
+        min: -8
+        max: -4
+      - resource: Material
+        min: -5
+        max: -3
+      - resource: Research
+        min: 1
+        max: 2
+      - resource: ManPower
+        min: -5
+        max: -3
+    answerLeft:
+      swipeSide: Left
+      textAnswer: No
+      results:
+      - resource: Mental
+        min: -5
+        max: -3
+      - resource: Tech
+        min: -3
+        max: -2
+  - character: Military
+    eventInfo: We should get more materials from other countries by attacking them
+    answerRight:
+      swipeSide: Right
+      textAnswer: Sure
+      results:
+      - resource: Material
+        min: 5
+        max: 9
+      - resource: Tech
+        min: 2
+        max: 4
+      - resource: Mental
+        min: -6
+        max: -3
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Are you kidding me
+      results:
+      - resource: Research
+        min: 3
+        max: 5
+      - resource: Mental
+        min: 3
+        max: 6
+      - resource: Material
+        min: -4
+        max: -2
+  - character: Military
+    eventInfo: We need help, a lot of our soilder got injured bad.
+    answerRight:
+      swipeSide: Right
+      textAnswer: I'll send help
+      results:
+      - resource: ManPower
+        min: -5
+        max: -2
+      - resource: Material
+        min: -5
+        max: -2
+      - resource: Money
+        min: 4
+        max: 9
+    answerLeft:
+      swipeSide: Left
+      textAnswer: We don't have much
+      results:
+      - resource: Material
+        min: -4
+        max: -2
+      - resource: Mental
+        min: 3
+        max: 5
+  - character: Bandit
+    eventInfo: HEY! Give me some of the medicine or I'll shut this place down
+    answerRight:
+      swipeSide: Right
+      textAnswer: OH HELL NO
+      results:
+      - resource: ManPower
+        min: -5
+        max: -2
+    answerLeft:
+      swipeSide: Left
+      textAnswer: Sure
+      results:
+      - resource: Material
+        min: -4
+        max: -2
+      - resource: Mental
+        min: 3
+        max: 5

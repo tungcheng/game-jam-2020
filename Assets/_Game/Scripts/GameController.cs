@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -17,6 +18,91 @@ public class GameController : MonoBehaviour
 
         sceneData.cardPrefab.isActive = false;
         CreateNewCard();
+    }
+
+    [NaughtyAttributes.Button]
+    public void LoadGameConfig()
+    {
+        sceneData.sheetLoader.DownLoadCsv("1JVavEENVVWvR2J86RQTvHFUlV8-KjbnWRMdoizeQihU", "0", true, data =>
+        {
+            //data.ForEach(x => x.ForEach(print));
+
+            Dictionary<int, string> tempString = new Dictionary<int, string>();
+            Dictionary<string, GameEvent> tempEvents = new Dictionary<string, GameEvent>();
+
+            int i = 1;
+            foreach (var row in data)
+            {
+                i++;
+                row.ForEach(print);
+                var resource = row[5].Trim();
+                if (!string.IsNullOrWhiteSpace(resource))
+                {
+                    var character = GetColumnValue(row, 1, tempString);
+                    var eventName = GetColumnValue(row, 2, tempString);
+                    var answer = GetColumnValue(row, 3, tempString);
+                    var textAnswer = GetColumnValue(row, 4, tempString);
+                    float min;
+                    min = float.Parse(row[6]);
+                    if (!float.TryParse(row[7], out float max))
+                    {
+                        max = min;
+                    }
+
+                    if (!tempEvents.TryGetValue(eventName, out GameEvent tempEvt))
+                    {
+                        tempEvt = new GameEvent()
+                        {
+                            eventInfo = eventName,
+                            character = character
+                        };
+                        tempEvt.answerRight = new EventAnswer()
+                        {
+                            swipeSide = "Right",
+                            textAnswer = "",
+                            results = new List<ResourceResult>()
+                        };
+                        tempEvt.answerLeft = new EventAnswer()
+                        {
+                            swipeSide = "Left",
+                            textAnswer = "",
+                            results = new List<ResourceResult>()
+                        };
+                        tempEvents[eventName] = tempEvt;
+                    }
+
+                    var eventAnswer = tempEvt.answerRight;
+                    switch (answer)
+                    {
+                        case "Right":
+                            break;
+                        case "Left":
+                            eventAnswer = tempEvt.answerLeft;
+                            break;
+                    }
+                    eventAnswer.textAnswer = textAnswer;
+
+                    var result = new ResourceResult()
+                    {
+                        resource = resource,
+                        min = min,
+                        max = max
+                    };
+                    eventAnswer.results.Add(result);
+                }
+            }
+            sceneData.config.events = tempEvents.Select(x => x.Value).ToList();
+            UnityEditorHelper.SetDirtyAndSave(sceneData.config);
+        },
+        Debug.LogError);
+    }
+
+    string GetColumnValue(List<string> row, int col, Dictionary<int, string> tempValue)
+    {
+        var value = row[col].Trim();
+        value = string.IsNullOrWhiteSpace(value) ? tempValue[col] : value;
+        tempValue[col] = value;
+        return value;
     }
 
     // Update is called once per frame
@@ -83,7 +169,7 @@ public class GameController : MonoBehaviour
         sceneData.cardCurrent = Instantiate(sceneData.cardPrefab, sceneData.sceneRoot);
         sceneData.cardCurrent.isActive = true;
 
-        foreach(var res in sceneData.resources)
+        foreach (var res in sceneData.resources)
         {
             res.changeOnLeft = Random.Range(-4f, 4f);
             res.changeOnRight = Random.Range(-4f, 4f);

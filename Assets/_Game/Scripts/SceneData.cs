@@ -5,9 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class SceneData
 {
+    public GameConfig config;
     public Camera mainCamera;
     public Transform sceneRoot;
-    
+    public GoogleSheetToCSV sheetLoader;
+
     public Transform cardStartPos;
     public BoxCollider2D dragCardZone;
 
