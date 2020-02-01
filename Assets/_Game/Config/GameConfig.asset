@@ -25,14 +25,14 @@ MonoBehaviour:
         max: 5
       - resource: Money
         min: -4
-        max: -7
+        max: -10
     answerLeft:
       swipeSide: Left
       textAnswer: No
       results:
       - resource: Material
-        min: -4
-        max: -8
+        min: -3
+        max: -5
       - resource: ManPower
         min: 2
         max: 3
@@ -72,8 +72,8 @@ MonoBehaviour:
         min: 2
         max: 2
       - resource: Material
-        min: -6
-        max: -10
+        min: -3
+        max: -5
       - resource: ManPower
         min: 4
         max: 6
@@ -117,8 +117,8 @@ MonoBehaviour:
         min: -5
         max: 5
       - resource: Material
-        min: -12
-        max: -8
+        min: -8
+        max: -4
       - resource: ManPower
         min: 2
         max: 4
@@ -136,8 +136,8 @@ MonoBehaviour:
         min: -10
         max: -5
       - resource: Material
-        min: -10
-        max: -5
+        min: -6
+        max: -3
       - resource: ManPower
         min: -7
         max: -3
@@ -146,8 +146,8 @@ MonoBehaviour:
       textAnswer: Repair your facility
       results:
       - resource: Money
-        min: -10
-        max: -5
+        min: -5
+        max: -2
       - resource: ManPower
         min: -5
         max: -2
@@ -167,8 +167,8 @@ MonoBehaviour:
         min: 5
         max: 8
       - resource: Money
-        min: -8
-        max: -5
+        min: 4
+        max: -2
       - resource: Tech
         min: -6
         max: -4
@@ -177,8 +177,8 @@ MonoBehaviour:
       textAnswer: 'No, We need to focus more on the research:'
       results:
       - resource: Material
-        min: -7
-        max: -4
+        min: -4
+        max: 4
       - resource: Tech
         min: -5
         max: -3
@@ -192,11 +192,11 @@ MonoBehaviour:
         min: 3
         max: 5
       - resource: Material
-        min: 5
-        max: 8
+        min: 8
+        max: 12
       - resource: Money
-        min: -8
-        max: -5
+        min: -4
+        max: -4
       - resource: Tech
         min: -6
         max: -4
@@ -205,7 +205,7 @@ MonoBehaviour:
       textAnswer: 'No, We need to focus more on the research:'
       results:
       - resource: Material
-        min: -7
+        min: 4
         max: -4
       - resource: Tech
         min: -5
@@ -221,8 +221,8 @@ MonoBehaviour:
         min: 3
         max: 5
       - resource: Material
-        min: 5
-        max: 8
+        min: 8
+        max: 12
       - resource: Money
         min: -8
         max: -5
@@ -234,7 +234,7 @@ MonoBehaviour:
       textAnswer: 'No, We need to focus more on the research:'
       results:
       - resource: Material
-        min: -7
+        min: 4
         max: -4
       - resource: Tech
         min: -5
@@ -248,7 +248,7 @@ MonoBehaviour:
       - resource: Mental
         min: 6
         max: 12
-      - resource: money
+      - resource: Money
         min: -5
         max: 0
       - resource: Material
@@ -278,8 +278,8 @@ MonoBehaviour:
         min: 4
         max: 7
       - resource: Tech
-        min: 2
-        max: 5
+        min: 6
+        max: 10
     answerLeft:
       swipeSide: Left
       textAnswer: Actually, we only test on monkeys
@@ -298,8 +298,8 @@ MonoBehaviour:
       textAnswer: Only some of us
       results:
       - resource: Money
-        min: -7
-        max: -3
+        min: 0
+        max: 7
       - resource: Material
         min: -5
         max: -2
@@ -330,8 +330,8 @@ MonoBehaviour:
         min: -6
         max: -3
       - resource: Money
-        min: 2
-        max: 4
+        min: 4
+        max: 8
     answerLeft:
       swipeSide: Left
       textAnswer: False
@@ -444,7 +444,7 @@ MonoBehaviour:
         max: -3
       - resource: Tech
         min: -3
-        max: -2
+        max: 3
   - character: Military
     eventInfo: We should get more materials from other countries by attacking them
     answerRight:
@@ -455,8 +455,8 @@ MonoBehaviour:
         min: 5
         max: 9
       - resource: Tech
-        min: 2
-        max: 4
+        min: 4
+        max: 7
       - resource: Mental
         min: -6
         max: -3
@@ -506,7 +506,7 @@ MonoBehaviour:
       results:
       - resource: ManPower
         min: -5
-        max: -2
+        max: -9
     answerLeft:
       swipeSide: Left
       textAnswer: Sure
@@ -514,6 +514,25 @@ MonoBehaviour:
       - resource: Material
         min: -4
         max: -2
+      - resource: Mental
+        min: 3
+        max: 5
+  - character: Bandit
+    eventInfo: Hey, wamma buy some materials
+    answerRight:
+      swipeSide: Right
+      textAnswer: yeah. What you got
+      results:
+      - resource: Material
+        min: 6
+        max: 10
+      - resource: Money
+        min: -5
+        max: -3
+    answerLeft:
+      swipeSide: Left
+      textAnswer: No, thank you.
+      results:
       - resource: Mental
         min: 3
         max: 5

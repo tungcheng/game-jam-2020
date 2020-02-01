@@ -110,6 +110,7 @@ public class GameController : MonoBehaviour
             }
             sceneData.config.events = tempEvents.Select(x => x.Value).ToList();
             UnityEditorHelper.SetDirtyAndSave(sceneData.config);
+            Debug.Log("Load Config DONE !!!");
         },
         Debug.LogError);
     }
