@@ -172,6 +172,9 @@ public class GameController : MonoBehaviour
         sceneData.cardCurrent.SetGameEvent(gameEvent);
         sceneData.textEventInfo.text = gameEvent.eventInfo;
 
+        gameData.cardCount += 1;
+        sceneData.timeInfo.text = "Day : " + gameData.cardCount.ToString();
+
         foreach (var res in sceneData.resources)
         {
             res.changeOnLeft = 0;

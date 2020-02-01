@@ -24,6 +24,7 @@ public class SceneData
     public Color colorNormal;
 
     public TMP_Text textEventInfo;
+    public TMP_Text timeInfo;
 
     public Dictionary<string, ResourceData> dictResource;
 

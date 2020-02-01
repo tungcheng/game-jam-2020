@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameData
 {
     public GameState state;
+    public int cardCount;
     public bool isCardDragging;
     public Vector2 dragLastPos;
 
